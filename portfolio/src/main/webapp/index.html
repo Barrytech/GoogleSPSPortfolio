@@ -1,18 +1,110 @@
+<!-- 
+    Class 1:
+        1.1 Wireframe your project
+        1.2 Fork and clone the repo and set up your project workspace
+    Class 2:  
+        2.1 Link your files in the head of the docment Add a Nav Bar to your site - It should have three links (Portfolio, About, and Contact) 
+        2.2 Add a div for each section. Within section add a contatiner div with the appropriate number of rows and columns
+    Class 3:  
+        3.1 Add thumbnails and other custom component (button, modal, font) using bootstrap Documentation 
+        3.2 Add CSS and add your site to gh-pages 
+-->
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="file.css" type="text/css" />
+    <script src="js/script.js"></script>
+    <link rel="icon" href="images/logo.jpg" type='image/x-icon'>
+    <title> Portfolio </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Fontawesome CSS  -->
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar">
+
+    <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top" id="menu" class="navbar navbar-light" style="background-color: #900C3F; navbar-fixed-top" role="navigation">
+
+
+        <h2 style="color: white; font-weight: bolder; font-style: italic; font-family: Times; font-size: 35px">Abdoul Barry's Portfolio site</h2>
+
+        <div class="row">
+           
+            <ul style=" list-style-type: none">
+                <div class="col-md-1"></div>
+                <div class="col-md-3 bold">
+                    <li class="nav-item">
+                        <a style="color:white" href="about.html">
+                            About
+                        </a>
+                    </li>
+                </div>
+                <div class="col-md-3 bold">
+                    <li class="nav-item">
+                        <a style="color:white" href="projects.html">
+                            Projects
+                            </a>
+                    </li>
+                </div>
+                <div class="col-md-3 bold">
+                    <li class="nav-item">
+                        <a style="color:white" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </div>
+                    <div class="col-md-1"></div>
+                  </ul>
+
+        </div>
+      
+        </div>
+        </div>
+        </div>
+    </nav>
+    <br> <br> <br> <br> <br> 
+     <h4 style="text-align:center; font-weight: bolder; font-style: italic;  font-family: Times; font-size: 35px; color: black"> Web developer - Literator - Poet</h4>
+    <div class="container mycontainer">
+        <div class="row">
+
+            <div id="me" class="col-sm-4 ">
+                <br>
+                <div id="thumMe" class="thumbnail">
+
+                    <img id="profile" src="images/profile.JPG" class="img-responsive" >
+
+                </div>
+                
+            </div>
+
+            <div class="col-md-8">
+               
+                <P id="presentme" style="text-align:center; font-family: Time; font-size: 20px">
+I came from a third world country growing up under extreme under-resourced circumstances with very limited educational opportunities. Back in Guinea, I was fascinated with math, physics and technology. My love for physics made me create a strong bond with nature and an unexplainable love for spoken words. I then started writing poetry during my freshman year. Since then, my interest opened to a wider area within literature. I worked on some short stories that I collected in a novel book. In addition, I began a novel which is my biggest project as a writer. 
+As of today, I am both involved in programming and writing. I consider writing skills as deep practice to become more creative as a programmer because it gives me the ability to think within and outside the box simultaneously.
+I came to the United States in February 2016 and immediately started hunting opportunities to put me on the right path to pursue my dreams. 
+I came across ScriptEd, which is an opportunity for me to learn to code. Surprisingly, it became more than that. ScriptEd has sent me to companies that I could not imagine stepping into such as Google for hackathons and Salesforce for mentorship.
+    
+
+                </P>
+            </div>
+
+
+
+        </div>
     </div>
-  </body>
+    </div>
+    </div>
+
+ <div class="jumbotron" id="contact">
+        <h5 style="text-align:center; font-size:25px"> Contact me @: barryabdoul2024@gmail.com && (267)-230-3322</h5>
+    </div>
+</body>
+
 </html>
