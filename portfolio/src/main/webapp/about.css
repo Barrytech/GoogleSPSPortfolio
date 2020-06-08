@@ -1,0 +1,66 @@
+h1 {
+    text-align: center;
+    font-weight: bolder;
+}
+
+p {
+    text-align: center;
+}
+
+ #resume{
+     width: 750px;
+     height:1150px;
+     border-color: blue;
+     background-image: url("images/myResume.jpg");
+     }
+#starman{
+    background-image: url("images/starman.JPG");
+      width: 460px;
+     height:480px;
+     border: solid;
+     border-color: orange;
+}
+.navbar{
+ text-transform: uppercase;
+   font-weight: 700;   
+   border: none;    
+}
+ .navbar .navbar-brand {
+   color: white;    
+ }
+ .navbar .navbar-brand:hover{
+   color: white;
+ }  
+
+ .navbar .navbar-nav li a {
+   color: white;
+ }
+ .navbar .navbar-nav li a:hover {
+   color: #15C2D2;
+ }
+ 
+ 
+ 
+ 
+    ul li a :hover{
+    background-color: orange;
+    
+}
+ul {
+    list-style-type: none;
+    background-color: orange;
+}
+
+li a {
+    list-style: none;
+    text-align: center;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: orange;
+    color: #900C3F;
+}
