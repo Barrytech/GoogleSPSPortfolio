@@ -1,3 +1,20 @@
+
+#home {
+  height: 600px;
+  background-color: pink;
+}
+
+#projects {
+  height: 600px;
+  background-color: yellow;
+}
+
+#contact {
+  height: 600px;
+  background-color: pink;
+}
+
+
 span{
     color:white;
 }
@@ -83,7 +100,6 @@ li a:hover {
   margin-right: auto;
   width: 650px;
 }
-
 #greeting-container {
   margin-top: 20px;
 } */
