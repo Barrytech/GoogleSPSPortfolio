@@ -1,5 +1,10 @@
 
 html,body{margin:0;}
+
+html {
+  scroll-behavior: smooth;
+}
+
 header{
     position: fixed;
     top:0;
@@ -10,6 +15,7 @@ header{
 
 main{
     margin-top: 128px;
+    position:fixed;
 }
 
 @supports (height: 100vh) { 
@@ -30,41 +36,34 @@ main{
     }
 }
 
-
-
-body{
-        font-family: "Open Sans";
-        font-size: 1.25rem;
-}
 main,header{
     padding: 10px 10%;
     box-sizing: border-box;
 }
 
 #home {
-  height: 600px;
-  background-color: pink;
+  height: fit-content; 
 }
 
 #projects {
-  height: 600px;
-  background-color: yellow;
+  height: fit-content;
 }
 
 #contact {
-  height: 600px;
-  background-color: pink;
+  height: fit-content;
 }
 
 
 span{
     color:white;
 }
+
 h1{
 color:white;
 font-size: medium;
 font-weight: bolder;
 }
+
 h2{
     text-align: center;
     font-weight: bolder; 
@@ -72,7 +71,6 @@ h2{
     font-size: 35px;
 }
  #imgprof{
- 
  height: 125px;
  width: 100px;
  background-image: url('profile.JPG');
@@ -149,3 +147,40 @@ li a:hover {
 #greeting-container {
   margin-top: 20px;
 } */
+
+#portfolio .portfolio-item  {   
+   display: block;   
+   position: relative;   
+   max-width: 400px;   
+   margin: 0 0 15px;  
+ 
+ }   
+ #portfolio .portfolio-item img {    
+   width: 100%;    
+   height: 200px;    
+ }  
+
+
+#contain{
+     border:solid;
+    height: 1000px;
+    position: relative;
+}
+.thumbnail{
+    border-color: blue;
+    border: solid;
+    height: 300px;
+     padding: 5px;
+}
+ 
+ section.about .btn-outline {    
+     color: #fff;    
+     font-size: 20px;    
+     border: 2px solid #fff;   
+     background: 0 0;    
+     transition: all .3s ease-in-out;    
+     margin-top: 15px;   
+ }   
+ #menu{
+     position:fixed;
+ }
