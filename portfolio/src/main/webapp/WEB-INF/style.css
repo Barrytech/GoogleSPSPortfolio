@@ -1,4 +1,4 @@
-html {
+/* html {
   scroll-behavior: smooth;
 }
 
@@ -20,7 +20,7 @@ main{
         background: linear-gradient(to right top, #0089f2 50%, #DDD 50%);
         background-size: 100% calc(100% - 100vh + 129px);
         /* background-repeat: no-repeat; */
-    }
+    /* }
 
     body:before{
         content:'';
@@ -30,24 +30,26 @@ main{
         width: 100%;
         z-index: -1;
         /* background: white; */
-    }
+    /* }
 }
 
 main,header{
     padding: 10px 10%;
     box-sizing: border-box;
-}  
+}    */ 
 
 #home {
   height: fit-content; 
 }
 
-#projects {
-  height: fit-content;
-}
+
 
 #contact {
   height: fit-content;
+}
+
+#resume {
+    height: fit-content;
 }
 
 
@@ -61,12 +63,7 @@ font-size: medium;
 font-weight: bolder;
 }
 
-h2{
-    text-align: center;
-    font-weight: bolder; 
-    font-family: Times; 
-    font-size: 35px;
-}
+
  #presentme{
      border:solid;
      border-color: orange;
@@ -80,31 +77,11 @@ h2{
     height: 150px;
 }
 
-/* */
- /* #content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
-}
-#greeting-container {
-  margin-top: 20px;
-} */
 
-#portfolio .portfolio-item  {   
-   display: block;   
-   position: relative;   
-   max-width: 400px;   
-   margin: 0 0 15px;  
- 
- }   
- #portfolio .portfolio-item img {    
-   width: 100%;    
-   height: 200px;    
- }  
-
-
+/* 
+code for projects section starts here */
 #contain{
-     border:solid;
+    border:solid;
     height: 1000px;
     position: relative;
 }
@@ -112,7 +89,7 @@ h2{
     border-color: blue;
     border: solid;
     height: 300px;
-     padding: 5px;
+    padding: 5px;
 }
  
  section.about .btn-outline {    
@@ -122,10 +99,41 @@ h2{
      background: 0 0;    
      transition: all .3s ease-in-out;    
      margin-top: 15px;   
+ } 
+#portfolio .portfolio-item  {   
+   display: block;   
+   position: relative;   
+   max-width: 400px;   
+   margin: 0 0 15px;  
+ 
  }   
- #menu{
-     position:fixed;
- }
+ img {    
+   width: 100%;    
+   height: 200px;    
+ }  
+ section.about .btn-outline {    
+     color: #fff;    
+     font-size: 20px;    
+     border: 2px solid #fff;   
+     background: 0 0;    
+     transition: all .3s ease-in-out;    
+     margin-top: 15px;   
+ }   
+
+  #portfolio .portfolio-item  {   
+   display: block;   
+   position: relative;   
+   max-width: 400px;   
+   margin: 0 0 15px;  
+ 
+ }   
+ #portfolio .portfolio-item img {    
+   width: 100%;    
+   height: 200px;    
+ } 
+
+ /* code for project section ends here */
+
 
 
 
