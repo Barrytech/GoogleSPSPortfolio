@@ -20,24 +20,45 @@ main{
         background: linear-gradient(to right top, #0089f2 50%, #DDD 50%);
         background-size: 100% calc(100% - 100vh + 129px);
         /* background-repeat: no-repeat; */
-    /* }
+    }
+} */
 
-    body:before{
-        content:'';
-        position: fixed;
-        top: 128px;
-        bottom: 0;
-        width: 100%;
-        z-index: -1;
-        /* background: white; */
-    /* }
+
+ /* //navbar code */
+
+ ul li a :hover{
+    background-color: orange;
+    
+}
+ul {
+    list-style-type: none;
+    background-color: orange;
 }
 
-main,header{
-    padding: 10px 10%;
-    box-sizing: border-box;
-}    */ 
+li a {
+    list-style: non;
+    text-align: center;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
 
+li a:hover {
+    background-color: orange;
+    color: #900C3F;
+}
+
+
+.navbar{
+   font-weight: 700;   
+   border: none;    
+}
+ a{
+     color: green;
+ }
+
+ /* //sections code optional */
 #home {
   height: fit-content; 
 }
