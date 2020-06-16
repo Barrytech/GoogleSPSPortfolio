@@ -23,6 +23,56 @@ function addRandomGreeting() {
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+//   const greetingContainer = document.getElementById('greeting-container');
+//   greetingContainer.innerText = greeting;
+//   alert(greeting);
+  $("#rd").html(greeting);
 }
+
+
+fetch('https://8080-dot-12581680-dot-devshell.appspot.com/data?authuser=0')  // sends a request to /my-data-url
+.then(response => response.json()) // parses the response as JSON
+.then((facts) => { // now we can reference the fields in myObject!
+  console.log(facts[0]);
+  console.log(facts[1]);
+  console.log(facts[2]);
+
+
+  function addRandomfacts() {
+    const elem = facts;
+    const fact = facts[Math.floor(Math.random()* facts.length)];
+    $("#rd").html(fact);
+}
+});
+
+
+
+
+
+$("#rdfact").click(function(){
+    randomFacts();
+});
+$("#surprise").click(function(){
+    addRandomGreeting();
+});
+
+$('.navTrigger').click(function () {
+    $(this).toggleClass('active');
+    console.log("Clicked menu");
+    $("#mainListDiv").toggleClass("show_list");
+    $("#mainListDiv").fadeIn();
+
+});
+
+ $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+
+
+        
+
