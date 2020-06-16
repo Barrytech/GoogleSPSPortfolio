@@ -23,11 +23,15 @@ function addRandomGreeting() {
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+//   const greetingContainer = document.getElementById('greeting-container');
+//   greetingContainer.innerText = greeting;
+//   alert(greeting);
+  $("#rd").html(greeting);
 }
 
-
+$("#rdfact").click(function(){
+    addRandomGreeting();
+});
 
 $('.navTrigger').click(function () {
     $(this).toggleClass('active');
