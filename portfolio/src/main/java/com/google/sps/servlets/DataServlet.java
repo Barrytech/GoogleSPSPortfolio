@@ -31,13 +31,14 @@ public class DataServlet extends HttpServlet {
     // response.setContentType("text/html;");
     // response.getWriter().println("<h1>Hello Barry!</h1>");
 
-    response.setContentType("application/json;");
+    response.setContentType("application/json");
   
   ArrayList<String> facts = new ArrayList<String>();
       facts.add(" I was born and raised in Guinea, West-Africa.");
       facts.add(" I have never had McDonal's.");
       facts.add(" I will probably graduate in my junior year.");
- Gson gson = new Gson();
+    Gson gson = new Gson();
+
  String json = gson.toJson(facts);
  response.getWriter().println(json);
 
