@@ -340,7 +340,7 @@
                 <form> <br <div class="col-md-6">
                     <h4 style=" color: blue; text-align: center; font-weight: bold;font-style: cursive"> Leave a note </h4>
                     <div id="fast" class="jumbotron">
-                        <form method="https://formspree.io/barryabdoul2024@gmail.com">
+                        <form action="/text" method="POST">
                             <div class="form-group row">
                                 <label id="first-name" for="example-search-input" class="col-2 col-form-label">First Name </label>
                                 <div class="col-10">
@@ -369,8 +369,8 @@
                             </div>
 
                             <br>
-                            <button type="submit" class="btn btn-primary">
-                                 <a href="welcome.html"  id="submit" style="color:white">  Submit </a>
+                            <button type="submit" class="btn btn-primary" id="submit" onclick = "PostComments()">
+                                 <a href="index.html"   style="color:white">  Submit </a>
                             </button>
                     </div>
             </div>

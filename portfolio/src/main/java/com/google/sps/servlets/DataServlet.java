@@ -20,12 +20,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import com.google.gson.Gson;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+    private ArrayList<String> facts;
+    public void init() {
+   facts = new ArrayList<String>();
 
+      facts.add(" I was born and raised in Guinea, West-Africa.");
+      facts.add(" I have never had McDonal's.");
+      facts.add(" I will probably graduate in my junior year.");
+    }
+     
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // response.setContentType("text/html;");
@@ -33,15 +42,47 @@ public class DataServlet extends HttpServlet {
 
     response.setContentType("application/json");
   
-  ArrayList<String> facts = new ArrayList<String>();
-      facts.add(" I was born and raised in Guinea, West-Africa.");
-      facts.add(" I have never had McDonal's.");
-      facts.add(" I will probably graduate in my junior year.");
+    //   ArrayList<String> facts = new ArrayList<String>();
+    //   facts.add(" I was born and raised in Guinea, West-Africa.");
+    //   facts.add(" I have never had McDonal's.");
+    //   facts.add(" I will probably graduate in my junior year.");
+
     Gson gson = new Gson();
 
  String json = gson.toJson(facts);
  response.getWriter().println(json);
 
 }
+
+ public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String text = getParameter(request, "text-input", "");
+    boolean upperCase = Boolean.parseBoolean(getParameter(request, "upper-case", "false"));
+    boolean sort = Boolean.parseBoolean(getParameter(request, "sort", "false"));
+
+    // Convert the text to upper case.
+    if (upperCase) {
+      text = text.toUpperCase();
+    }
+
+    // Break the text into individual words.
+    String[] words = text.split("\\s*,\\s*");
+
+    // Sort the words.
+    if (sort) {
+      Arrays.sort(words);
+    }
+
+    // Respond with the result.
+    response.setContentType("text/html;");
+    response.getWriter().println(Arrays.toString(words));
+  }
+   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
 }
 
