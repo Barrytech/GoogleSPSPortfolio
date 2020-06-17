@@ -340,37 +340,37 @@
                 <form> <br <div class="col-md-6">
                     <h4 style=" color: blue; text-align: center; font-weight: bold;font-style: cursive"> Leave a note </h4>
                     <div id="fast" class="jumbotron">
-                        <form action="/text" method="POST">
+                        <form action="/data" method="POST">
                             <div class="form-group row">
                                 <label id="first-name" for="example-search-input" class="col-2 col-form-label">First Name </label>
                                 <div class="col-10">
-                                    <input id="first-name-feild" class="form-control" type="search" id="example-search-input">
+                                    <input name="first-name-field" class="form-control" type="search" id="example-search-input">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <label id="last-name-name" for="example-search-input" class="col-2 col-form-label">Last Name</label>
                                 <div class="col-10">
-                                    <input id="last-nname-feild" class="form-control" type="search" id="example-search-input">
+                                    <input name="last-name-feild" class="form-control" type="search" id="example-search-input">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="example-email-input" class="col-2 col-form-label">Email</label>
                                 <div class="col-10">
-                                    <input class="form-control userid2" type="email" id="example-email-input">
+                                    <input name="email-field" class="form-control userid2" type="email" id="example-email-input">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="example-email-input" class="col-2 col-form-label">Questions</label>
                                 <br>
                                 <div class="col-md-10">
-                                    <textarea id="comments" type="textarea" name="" /> </textarea>
+                                    <textarea id="comments" type="textarea" name="feedback-field"> </textarea>
                                 </div>
                             </div>
 
                             <br>
                             <button type="submit" class="btn btn-primary" id="submit" onclick = "PostComments()">
-                                 <a href="index.html"   style="color:white">  Submit </a>
+                                Submit
+                                 <!-- <a href="index.html"   style="color:white">  Submit </a> -->
                             </button>
                     </div>
             </div>
