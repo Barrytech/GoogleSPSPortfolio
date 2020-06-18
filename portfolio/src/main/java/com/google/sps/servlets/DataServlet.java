@@ -83,8 +83,8 @@ public class DataServlet extends HttpServlet {
         String htmlRespone = "<html>";
         htmlRespone += "<h2> First-Name is: " + firstname + "<br/>";      
         htmlRespone += " Last Name is: " + lastname + "<br/>";
-        htmlRespone += " Email address is: " + lastname + "<br/>";
-        htmlRespone += " Comment is: " + lastname + "<h2>"; 
+        htmlRespone += " Email address is: " + email + "<br/>";
+        htmlRespone += " Comment is: " + comments + "<h2>"; 
         htmlRespone += "</html>";
          
         // return response
@@ -92,7 +92,9 @@ public class DataServlet extends HttpServlet {
 
  }
 
-//       System.out.println(" inside doPost");
+
+// this would be another method to explore on how to do it
+
 //     // Get the input from the form.
 //     String text = getParameter(request, "text-input", "");
 //     boolean upperCase = Boolean.parseBoolean(getParameter(request, "upper-case", "false"));

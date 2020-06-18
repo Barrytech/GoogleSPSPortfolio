@@ -46,8 +46,11 @@ fetch('https://8080-dot-12581680-dot-devshell.appspot.com/data?authuser=0')  // 
 });
 
 function PostComments() {
-    doPost();
+    doPost(htmlResponse);
 }
+$("#submit").click(function(){
+    PostComments();
+});
 
 
 
