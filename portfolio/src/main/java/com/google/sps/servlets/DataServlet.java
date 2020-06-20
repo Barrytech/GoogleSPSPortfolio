@@ -14,15 +14,25 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
+
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 import com.google.gson.Gson;
 import java.io.PrintWriter;
+import com.google.sps.data.Task;
  
 
 
@@ -39,7 +49,13 @@ public class DataServlet extends HttpServlet {
       facts.add(" I will probably graduate in my junior year.");
     }
 
+    static String FirstNameKey = "first";
+    static String LastNameKey = "last";
+    static String EmailKey = "em";
+    static String CommentsKey = "com";
 
+    //initialize datastore
+   private  DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 
      
@@ -49,16 +65,26 @@ public class DataServlet extends HttpServlet {
     // response.getWriter().println("<h1>Hello Barry!</h1>");
 
     response.setContentType("application/json");
-  
-    //   ArrayList<String> facts = new ArrayList<String>();
-    //   facts.add(" I was born and raised in Guinea, West-Africa.");
-    //   facts.add(" I have never had McDonal's.");
-    //   facts.add(" I will probably graduate in my junior year.");
 
     Gson gson = new Gson();
 
- String json = gson.toJson(facts);
- response.getWriter().println(json);
+//  String json = gson.toJson(facts);
+//  response.getWriter().println(json);
+
+ArrayList<Task> entities = new ArrayList<>();
+//code for comments form:
+  Query query = new Query("Task").addSort("firstname", SortDirection.DESCENDING);
+        PreparedQuery results = datastore.prepare(query);
+        for (Entity entity : results.asIterable()) {
+            String firstname =(String) entity.getProperty(FirstNameKey);
+            String lastname = (String) entity.getProperty(LastNameKey);
+            String email = (String) entity.getProperty(EmailKey);
+            String comments = (String) entity.getProperty(CommentsKey);
+
+            entities.add(new Task(firstname, lastname, email, comments));
+            }
+            String json = gson.toJson(entities);
+            response.getWriter().println(entities);
 
 }
 
@@ -67,33 +93,79 @@ public class DataServlet extends HttpServlet {
         String firstname = request.getParameter("first-name-field");
         String lastname = request.getParameter("last-name-field");
         String email = request.getParameter("email-field");
-        String comments = request.getParameter("feedback");
+        String comments = request.getParameter("feedback-field");
          
         System.out.println("First name: " + firstname);
         System.out.println("Last name: " + lastname);
         System.out.println("Email: " + email);
         System.out.println("Comments: " + comments);
- 
         // do some processing here...
-         
         // get response writer
-        PrintWriter writer = response.getWriter();
-         
+        PrintWriter writer = response.getWriter();  
         // build HTML code
         String htmlRespone = "<html>";
         htmlRespone += "<h2> First-Name is: " + firstname + "<br/>";      
         htmlRespone += " Last Name is: " + lastname + "<br/>";
         htmlRespone += " Email address is: " + email + "<br/>";
         htmlRespone += " Comment is: " + comments + "<h2>"; 
-        htmlRespone += "</html>";
-         
+        htmlRespone += "</html>"; 
         // return response
         writer.println(htmlRespone);
 
- }
+ 
+ // here starts the code for datastoring
+        Entity taskEntity = new Entity("Task");
+
+        taskEntity.setProperty( FirstNameKey, firstname);
+        taskEntity.setProperty( LastNameKey, lastname);
+        taskEntity.setProperty( EmailKey, email);
+        taskEntity.setProperty( CommentsKey, comments);      
+
+       
+        datastore.put(taskEntity);
+        response.sendRedirect("/index.html");
+
+            
+        }
 
 
-// this would be another method to explore on how to do it
+        //here starts the code for authentication:
+
+        UserService userService = UserServiceFactory.getUserService();
+        if (userService.isUserLoggedIn()) {
+            String userEmail = userService.getCurrentUser().getEmail();
+            String urlToRedirectToAfterUserLogsOut = "/";
+            String logoutUrl = userService.createLogoutURL(urlToRedirectToAfterUserLogsOut);
+
+        response.getWriter().println("<p>Hello " + userEmail + "!</p>");
+        response.getWriter().println("<p>Logout <a href=\"" + logoutUrl + "\">here</a>.</p>");
+        }else {
+            String urlToRedirectToAfterUserLogsIn = "/";
+            String loginUrl = userService.createLoginURL(urlToRedirectToAfterUserLogsIn);
+
+            response.getWriter().println("<p>Hello stranger.</p>");
+            response.getWriter().println("<p>Login <a href=\"" + loginUrl + "\">here</a>.</p>");
+        }
+        //associating data:
+        String email = userService.getCurrentUser().getEmail();
+        messageEntity.setProperty("email", email);
+         
+    }
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+ // this would be another method to explore on how to do it
 
 //     // Get the input from the form.
 //     String text = getParameter(request, "text-input", "");
@@ -123,6 +195,5 @@ public class DataServlet extends HttpServlet {
 //       return defaultValue;
 //     }
 //     return value;
- 
-}
+
 
