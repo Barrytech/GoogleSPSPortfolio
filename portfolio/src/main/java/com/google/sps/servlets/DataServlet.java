@@ -120,15 +120,10 @@ ArrayList<Task> entities = new ArrayList<>();
         taskEntity.setProperty( LastNameKey, lastname);
         taskEntity.setProperty( EmailKey, email);
         taskEntity.setProperty( CommentsKey, comments);      
-
        
         datastore.put(taskEntity);
         response.sendRedirect("/index.html");
-
-            
         }
-
-
         //here starts the code for authentication:
 
         UserService userService = UserServiceFactory.getUserService();
